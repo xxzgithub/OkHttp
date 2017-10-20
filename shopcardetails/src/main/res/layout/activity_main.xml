@@ -1,0 +1,64 @@
+<bwie.com.shopcardetails.ScrollViewContainer
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:text="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+
+    <!--第一个scrollview-->
+    <!--这里放商品展示的布局，要注意的是这个布局要充满屏幕，
+    不然是无法拉到第二个页面下去的，
+    本人用的是LinearLayout,在放了一些必要的布局后，
+    在放一个空的View让它填满剩余的屏幕，
+    然后再放一个TextView来显示“继续拖动，查看详情”的字样-->
+
+    <scrollview
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="继续拖动"
+                />
+        </LinearLayout>
+    </scrollview>
+
+    <linearlayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--这是选项卡-->
+        <include layout="@layout/activity_thing_tab">
+
+            <!--第二个scrollview-->
+            <scrollview
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                ...
+                <!--这里放商品详情的布局-->
+                ...
+            </scrollview>
+        </include>
+    </linearlayout>
+</bwie.com.shopcardetails.ScrollViewContainer>
